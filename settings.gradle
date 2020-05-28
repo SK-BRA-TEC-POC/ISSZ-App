@@ -1,0 +1,2 @@
+rootProject.name='UPSVAR Mobile'
+include ':app'
