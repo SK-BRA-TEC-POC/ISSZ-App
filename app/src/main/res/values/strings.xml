@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">UPSVAR Mobile</string>
+    <!--  Citizen or individual  -->
+    <string name="citizen">Citizen</string>
+    <string name="company">Legal person</string>
+    <string name="intro">Introduction</string>
+    <string name="request_id">Request ID</string>
+    <string name="search">Search</string>
+    <string name="enter_search_parameters">Enter search parameters</string>
+    <string name="ico">Company ID</string>
 </resources>

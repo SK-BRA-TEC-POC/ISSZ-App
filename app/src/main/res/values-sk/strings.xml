@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">UPSVAR Mobile</string>
+    <!--  Citizen or individual  -->
+    <string name="citizen">Obcan</string>
+    <string name="company">Podnikatel</string>
+    <string name="intro">Uvod</string>
+</resources>
