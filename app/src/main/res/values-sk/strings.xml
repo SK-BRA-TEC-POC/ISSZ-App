@@ -1,7 +1,17 @@
 <resources>
     <string name="app_name">UPSVAR Mobile</string>
     <!--  Citizen or individual  -->
-    <string name="citizen">Obcan</string>
-    <string name="company">Podnikatel</string>
-    <string name="intro">Uvod</string>
+    <string name="citizen">Občan</string>
+    <string name="company">Podnikateľ</string>
+    <string name="covid_state1">Covid-19 (§54e)</string>
+    <string name="intro">Úvod</string>
+    <string name="request_id">Číslo žiadosti</string>
+    <string name="search">Vyhľadať</string>
+    <string name="enter_search_parameters">Zadajte parametre pre vyhľadávanie</string>
+    <string name="ico">IČO</string>
+    <string name="scan_id_card">Skenovať z Občianskeho preukazu</string>
+    <string name="personal_id">Rodné čislo</string>
+    <string name="last_name">Priezvisko</string>
+    <string name="first_name">Meno</string>
+    <string name="covid_state2">Covid-19 (iný)</string>
 </resources>
