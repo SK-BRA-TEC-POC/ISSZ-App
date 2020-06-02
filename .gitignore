@@ -1,15 +1,17 @@
+####
+# Android project ignored files
+####
+
 *.iml
 .gradle
-/local.properties
-/.idea
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
+*/local.properties
+*/.idea
 .DS_Store
-/build
-/captures
+*/build
 .externalNativeBuild
 .cxx
+*/app/build/
+
+####
+# Other project ignored files
+####
