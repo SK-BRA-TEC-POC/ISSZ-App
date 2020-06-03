@@ -5,8 +5,10 @@ import android.util.Log;
 import com.atos.issr.BuildConfig;
 import com.atos.issr.modules.rx.model.ws.dtos.request.CitizenRequest;
 import com.atos.issr.modules.rx.model.ws.dtos.request.ISSRRequest;
+import com.atos.issr.modules.rx.model.ws.dtos.request.LegalPersonRequest;
 import com.atos.issr.modules.rx.model.ws.dtos.response.CitizenResponse;
 import com.atos.issr.modules.rx.model.ws.dtos.response.ISSRResponse;
+import com.atos.issr.modules.rx.model.ws.dtos.response.LegalPersonResponse;
 import com.atos.issr.utils.StringUtils;
 
 import java.net.MalformedURLException;
@@ -54,6 +56,23 @@ public class IssrApiImpl implements IssrAPI {
         });
     }
 
+    @Override
+    public Observable<ISSRResponse> legalPersonRequestCall(LegalPersonRequest request) {
+        return rx.Observable.create(subscriber -> {
+            try {
+//                ISSRResponse response = callWS(request, ISSRResponse.class, "/citizen");
+                ISSRResponse response = mockCallLegalPersonResponse(request, ISSRResponse.class);
+                if (response == null) {
+                    throw new NullPointerException();
+                }
+                subscriber.onNext(response);
+                subscriber.onCompleted();
+            } catch (Exception e) {
+                subscriber.onError(e);
+            }
+        });
+    }
+
     private <T> T mockCallClientResponse(ISSRRequest request, Class<T> clazz) {
         String sRequest = StringUtils.requestToJson(request);
         Log.i(TAG, "Sending request: " + sRequest);
@@ -63,6 +82,18 @@ public class IssrApiImpl implements IssrAPI {
             e.printStackTrace();
         }
         CitizenResponse response = new CitizenResponse();
+        return (T) response;
+    }
+
+    private <T> T mockCallLegalPersonResponse(ISSRRequest request, Class<T> clazz) {
+        String sRequest = StringUtils.requestToJson(request);
+        Log.i(TAG, "Sending request: " + sRequest);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        LegalPersonResponse response = new LegalPersonResponse();
         return (T) response;
     }
 

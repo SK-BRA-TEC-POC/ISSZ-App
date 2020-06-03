@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ISSR Mobile</string>
+    <string name="app_name" translatable="false">ISSR Mobile</string>
     <!--  Citizen or individual  -->
     <string name="citizen">Citizen</string>
     <string name="company">Legal person</string>
@@ -20,4 +20,6 @@
     <string name="staus_of_request">Request status</string>
     <string name="payment_status">Payment status</string>
     <string name="processed_period">Processed period</string>
+    <string name="required_fields_empty">Required fields are not filled.</string>
+    <string name="invalid_legal_person_id">Legal person ID is not valid. Valid ID has 6 or 8 numbers.</string>
 </resources>

@@ -19,4 +19,6 @@
     <string name="staus_of_request">Stav žiadosti / dohody</string>
     <string name="payment_status">Stav platby</string>
     <string name="processed_period">Spracované obdobie</string>
+    <string name="required_fields_empty">Požadované polia nie sú vyplnené.</string>
+    <string name="invalid_legal_person_id">IČO je neplatné. Validna dĺžka je 6 alebo 8 čísiel.</string>
 </resources>

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.atos.issr.R;
 import com.atos.issr.custom.CustomTextWatcher;
@@ -141,6 +142,7 @@ public class CitizenActivity extends ActivityWithProgressBar {
 
     @Override
     View.OnClickListener onSearchButtonClick() {
+        Activity intent = this;
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,6 +151,9 @@ public class CitizenActivity extends ActivityWithProgressBar {
                 if (firstNameEditText.getText().toString().isEmpty() ||
                         lastNameEditText.getText().toString().isEmpty() ||
                         personalNoNameEditText.getText().toString().isEmpty()) {
+                    Toast.makeText(intent, R.string.required_fields_empty, Toast.LENGTH_LONG).show();
+                    stopLoading();
+
                 } else {
                     request = new CitizenRequest(covidTypeRequest,
                             firstNameEditText.getText().toString(),
