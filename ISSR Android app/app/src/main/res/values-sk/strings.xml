@@ -14,4 +14,5 @@
     <string name="first_name">Meno</string>
     <string name="covid_state2">Covid-19 (iný)</string>
     <string name="insert_request_id">Zadajte číslo žiadosti, alebo dohody</string>
+    <string name="you_are_in_screen">Nachádzate sa na zvolenej obrazovke.</string>
 </resources>

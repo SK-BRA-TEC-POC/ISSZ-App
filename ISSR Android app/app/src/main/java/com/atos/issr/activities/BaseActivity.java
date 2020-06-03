@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +14,7 @@ import com.atos.issr.R;
  * Created by Jarci on 29. 5. 2020.
  */
 
-abstract class BaseActivity  extends AppCompatActivity {
+abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -27,19 +28,25 @@ abstract class BaseActivity  extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.citizen:
-                Intent individualActivity = new Intent(getApplicationContext(), IndividualsActivity.class);
-                startActivity(individualActivity);
+                startActivityIfNotEquals(IndividualsActivity.class);
                 return true;
             case R.id.company:
-                Intent legalPersonActivity = new Intent(getApplicationContext(), LegalPersonActivity.class);
-                startActivity(legalPersonActivity);
+                startActivityIfNotEquals(LegalPersonActivity.class);
                 return true;
             case R.id.intro:
-                Intent searchRequestActivity = new Intent(getApplicationContext(), SearchRequestActivity.class);
-                startActivity(searchRequestActivity);
+                startActivityIfNotEquals(SearchRequestActivity.class);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void startActivityIfNotEquals(Class clazz) {
+        if (this.getClass() == clazz) {
+            Toast.makeText(this, R.string.you_are_in_screen, Toast.LENGTH_LONG).show();
+        } else {
+            Intent intent = new Intent(getApplicationContext(), clazz);
+            startActivity(intent);
         }
     }
 }
