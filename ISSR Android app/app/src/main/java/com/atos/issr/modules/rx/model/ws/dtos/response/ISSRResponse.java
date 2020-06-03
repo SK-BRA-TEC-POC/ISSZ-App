@@ -1,34 +1,33 @@
 package com.atos.issr.modules.rx.model.ws.dtos.response;
 
 
+import javax.xml.bind.annotation.XmlElement;
+
 /**
  * Created by a605053 on 12. 1. 2018.
  */
 
 public class ISSRResponse {
-    private String code;
-    private String description;
+    @XmlElement(
+            name = "code",
+            required = true
+    )
+    private int code;
+    @XmlElement(
+            name = "description",
+            required = true
+    )    private String description;
 
     public ISSRResponse() {
-        this.code = "";
+        this.code = 0;
         this.description = "Testovacia hlaska";
     }
 
-//    public UpsvarResponse(MDsaResponseStatus status) {
-//        this.code = status.getCode();
-//        this.description = status.getDescription();
-//    }
-//
-//    public UpsvarResponse(MDsaResponse response) {
-//        this.code = response.getStatus().getCode();
-//        this.description = response.getStatus().getDescription();
-//    }
-
-    public String getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(int code) {
         this.code = code;
     }
 
