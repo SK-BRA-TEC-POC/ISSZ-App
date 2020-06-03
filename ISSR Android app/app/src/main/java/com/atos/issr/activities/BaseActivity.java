@@ -1,6 +1,7 @@
 package com.atos.issr.activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,6 +16,13 @@ import com.atos.issr.R;
  */
 
 abstract class BaseActivity extends AppCompatActivity {
+    protected String TAG = "BaseActivity";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setTAG();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -48,5 +56,9 @@ abstract class BaseActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), clazz);
             startActivity(intent);
         }
+    }
+
+    private void setTAG() {
+        TAG = "AtosIssr"+getClass().getSimpleName();
     }
 }

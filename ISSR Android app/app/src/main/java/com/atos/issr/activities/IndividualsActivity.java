@@ -20,8 +20,7 @@ import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
 import com.microblink.uisettings.ActivityRunner;
 import com.microblink.uisettings.DocumentVerificationUISettings;
 
-public class IndividualsActivity extends BaseActivity {
-    public static final String TAG = "IndividualsActivity";
+public class IndividualsActivity extends ActivityWithProgressBar {
     public static final int MY_REQUEST_CODE = 0x101;
 
     private int covidState;
@@ -38,6 +37,7 @@ public class IndividualsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_individuals);
+        initComponents();
 
         try {
             AppUtils.initMicroblink(this);
@@ -73,8 +73,8 @@ public class IndividualsActivity extends BaseActivity {
                     personalNoNameEditText.setText(sb.toString());
                     personalNoNameEditText.setSelection(sb.length());
                 } else if (sb.length() == 7 && !sb.toString().contains("/")) {
-                    char extraChar = sb.charAt(sb.length()-1);
-                    sb.deleteCharAt(sb.length()-1)
+                    char extraChar = sb.charAt(sb.length() - 1);
+                    sb.deleteCharAt(sb.length() - 1)
                             .append('/')
                             .append(extraChar);
                     personalNoNameEditText.setText(sb.toString());
@@ -94,7 +94,6 @@ public class IndividualsActivity extends BaseActivity {
             ActivityRunner.startActivityForResult(intent, MY_REQUEST_CODE, documentUISettings);
         };
     }
-
 
     public void onRadioButtonClicked(View view) {
         boolean checked = ((RadioButton) view).isChecked();
@@ -127,9 +126,21 @@ public class IndividualsActivity extends BaseActivity {
                     firstNameEditText.setText(result.getFirstName());
                     lastNameEditText.setText(result.getLastName());
                     personalNoNameEditText.setText(result.getPersonalIdNumber());
+                    // TODO: 3. 6. 2020 uncomment line below if want automation
+                    //searchButton.callOnClick();
                 }
             }
         }
     }
 
+    @Override
+    View.OnClickListener onSearchButtonClick() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startLoading();
+                // TODO: 3. 6. 2020 call ws
+            }
+        };
+    }
 }

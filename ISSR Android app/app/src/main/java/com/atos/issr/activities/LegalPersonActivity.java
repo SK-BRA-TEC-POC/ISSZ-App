@@ -8,7 +8,7 @@ import android.widget.RadioButton;
 
 import com.atos.issr.R;
 
-public class LegalPersonActivity extends BaseActivity {
+public class LegalPersonActivity extends ActivityWithProgressBar {
     public static final String TAG = "LegalPersonActivity";
 
     private int covidState;
@@ -17,6 +17,7 @@ public class LegalPersonActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leagal_person);
+        initComponents();
     }
 
     public void onRadioButtonClicked(View view) {
@@ -36,6 +37,17 @@ public class LegalPersonActivity extends BaseActivity {
             default:
                 //nothing
         }
-        Log.d(TAG, "Covid state changed to state: '"+covidState+'\'');
+        Log.d(TAG, "Covid state changed to state: '" + covidState + '\'');
+    }
+
+    @Override
+    View.OnClickListener onSearchButtonClick() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startLoading();
+                // TODO: 3. 6. 2020 call ws
+            }
+        };
     }
 }

@@ -6,11 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".activities.SearchRequestActivity">
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/loading_bar"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/main_logo"
         android:layout_marginTop="24dp"
+        android:src="@drawable/main_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -51,10 +63,10 @@
 
             <TextView
                 android:id="@+id/search_request_text_view"
-                android:layout_margin="10sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_margin="10sp"
                 android:layout_weight="1"
                 android:text="@string/request_id" />
 
@@ -65,9 +77,9 @@
                 android:layout_margin="10sp"
                 android:layout_weight="50"
                 android:background="@drawable/text_edit_style"
-                android:padding="10dp"
                 android:inputType="number"
-                android:maxLength="8"/>
+                android:maxLength="8"
+                android:padding="10dp" />
         </LinearLayout>
 
     </LinearLayout>
