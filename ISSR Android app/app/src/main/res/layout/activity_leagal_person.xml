@@ -6,64 +6,97 @@
     android:layout_height="match_parent"
     tools:context=".activities.LegalPersonActivity">
 
-    <Button
-        android:id="@+id/search_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="168dp"
-        android:padding="30dp"
-        android:text="@string/search"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <RadioGroup
-        android:id="@+id/radio_button_selector"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/linear_layout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rootTextView"
-        app:layout_constraintVertical_bias="0.17000002" />
-
-    <LinearLayout
-        android:id="@+id/linear_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/search_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-        <TextView
-            android:id="@+id/TextViewLabelICO"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/ico" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10sp"
-            android:background="@drawable/text_edit_style"
-            android:hint="@string/request_id"
-            android:padding="10dp"/>
-    </LinearLayout>
-
     <TextView
         android:id="@+id/rootTextView"
         android:layout_width="wrap_content"
         android:layout_height="19dp"
         android:text="@string/enter_search_parameters"
-        app:layout_constraintBottom_toTopOf="@+id/linear_layout"
+        app:layout_constraintBottom_toTopOf="@+id/center_linear_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.31" />
+        app:layout_constraintVertical_bias="0.19999999" />
+
+    <RadioGroup
+        android:id="@+id/radio_button_selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="100sp"
+        app:layout_constraintBottom_toTopOf="@+id/center_linear_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rootTextView"
+        app:layout_constraintVertical_bias="0.19">
+
+        <RadioButton
+            android:id="@+id/covid_state1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/covid_state1" />
+
+        <RadioButton
+            android:id="@+id/covid_state2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/covid_state2" />
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/center_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10sp"
+        android:background="@drawable/text_edit_style"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/search_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radio_button_selector">
+
+        <LinearLayout
+            android:id="@+id/linear_first_name_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10sp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/linear_button_layout"
+            tools:layout_editor_absoluteX="10dp"
+            tools:layout_editor_absoluteY="410dp">
+
+            <TextView
+                android:id="@+id/legal_person_text_view"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="@string/company" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/legal_person_id_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:layout_weight="50"
+                android:background="@drawable/text_edit_style"
+                android:padding="10dp"
+                android:inputType="number"
+                android:maxLength="8"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/center_linear_layout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
