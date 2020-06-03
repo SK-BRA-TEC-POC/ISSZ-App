@@ -20,8 +20,8 @@ import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
 import com.microblink.uisettings.ActivityRunner;
 import com.microblink.uisettings.DocumentVerificationUISettings;
 
-public class IndividualActivity extends BaseActivity {
-    public static final String TAG = "IndividualActivity";
+public class IndividualsActivity extends BaseActivity {
+    public static final String TAG = "IndividualsActivity";
     public static final int MY_REQUEST_CODE = 0x101;
 
     private int covidState;
@@ -37,7 +37,7 @@ public class IndividualActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_individual_layout);
+        setContentView(R.layout.activity_individuals_layout);
 
         try {
             AppUtils.initMicroblink(this);
@@ -79,7 +79,6 @@ public class IndividualActivity extends BaseActivity {
                             .append(extraChar);
                     personalNoNameEditText.setText(sb.toString());
                     personalNoNameEditText.setSelection(sb.length());
-
                 }
             }
         };
@@ -111,6 +110,8 @@ public class IndividualActivity extends BaseActivity {
                     covidState = 2;
                     break;
                 }
+            default:
+                //nothing
         }
     }
 
@@ -129,7 +130,6 @@ public class IndividualActivity extends BaseActivity {
                 }
             }
         }
-
     }
 
 }

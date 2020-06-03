@@ -27,7 +27,7 @@ abstract class BaseActivity  extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.citizen:
-                Intent individualActivity = new Intent(getApplicationContext(), IndividualActivity.class);
+                Intent individualActivity = new Intent(getApplicationContext(), IndividualsActivity.class);
                 startActivity(individualActivity);
                 return true;
             case R.id.company:

@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.atos.issr.activities.IndividualActivity"></activity>
+        <activity android:name="com.atos.issr.activities.IndividualsActivity"></activity>
         <activity android:name="com.atos.issr.activities.LegalPersonActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
