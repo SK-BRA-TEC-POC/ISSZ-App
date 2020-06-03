@@ -27,7 +27,7 @@ import com.microblink.uisettings.DocumentVerificationUISettings;
 public class CitizenActivity extends ActivityWithProgressBar {
     public static final int MY_REQUEST_CODE = 0x101;
 
-    private int covidState;
+    private int covidTypeRequest;
     private Button scanIdCardButton;
     private EditText firstNameEditText;
     private EditText lastNameEditText;
@@ -106,12 +106,12 @@ public class CitizenActivity extends ActivityWithProgressBar {
         switch (view.getId()) {
             case R.id.covid_state1:
                 if (checked) {
-                    covidState = 1;
+                    covidTypeRequest = 1;
                     break;
                 }
             case R.id.covid_state2:
                 if (checked) {
-                    covidState = 2;
+                    covidTypeRequest = 2;
                     break;
                 }
             default:
@@ -150,7 +150,8 @@ public class CitizenActivity extends ActivityWithProgressBar {
                         lastNameEditText.getText().toString().isEmpty() ||
                         personalNoNameEditText.getText().toString().isEmpty()) {
                 } else {
-                    request = new CitizenRequest(firstNameEditText.getText().toString(),
+                    request = new CitizenRequest(covidTypeRequest,
+                            firstNameEditText.getText().toString(),
                             lastNameEditText.getText().toString(),
                             personalNoNameEditText.getText().toString());
 

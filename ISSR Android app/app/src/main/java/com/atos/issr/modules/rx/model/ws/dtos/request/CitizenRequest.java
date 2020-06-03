@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(
         name = "ISSRCitizenRequest"
 )
-public class CitizenRequest extends ISSRRequest {
+public class CitizenRequest extends RequestWithCovidType {
     @XmlElement(
             name = "firstName",
             required = true
@@ -27,10 +27,10 @@ public class CitizenRequest extends ISSRRequest {
     )
     private String personalNo;
 
-    public CitizenRequest(String firstName, String lastName, String personalNo) {
+    public CitizenRequest(int covidTypeRequest, String firstName, String lastName, String personalNo) {
+        super(covidTypeRequest);
         this.firstName = firstName;
         this.lastName = lastName;
         this.personalNo = personalNo;
     }
-
 }
