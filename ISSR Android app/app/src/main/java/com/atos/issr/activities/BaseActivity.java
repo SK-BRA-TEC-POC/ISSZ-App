@@ -36,7 +36,7 @@ abstract class BaseActivity extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.citizen:
-                startActivityIfNotEquals(IndividualsActivity.class);
+                startActivityIfNotEquals(CitizenActivity.class);
                 return true;
             case R.id.company:
                 startActivityIfNotEquals(LegalPersonActivity.class);

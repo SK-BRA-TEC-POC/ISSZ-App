@@ -8,8 +8,8 @@ package com.atos.issr.modules.rx.model.interactor;
 import com.atos.issr.modules.rx.model.executor.PostExecutionThread;
 import com.atos.issr.modules.rx.model.executor.ThreadExecutor;
 import com.atos.issr.modules.rx.model.executor.ThreadManager;
-import com.atos.issr.modules.rx.model.ws.UpsvarAPI;
-import com.atos.issr.modules.rx.model.ws.UpsvarApiImpl;
+import com.atos.issr.modules.rx.model.ws.IssrAPI;
+import com.atos.issr.modules.rx.model.ws.IssrApiImpl;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -28,7 +28,7 @@ import rx.subscriptions.Subscriptions;
 public abstract class UseCase<T> {
     private final ThreadExecutor threadExecutor;
     private final PostExecutionThread postExecutionThread;
-    protected final UpsvarAPI upsvarAPI = new UpsvarApiImpl();
+    protected final IssrAPI issrAPI = new IssrApiImpl();
 
     private Subscription subscription = Subscriptions.empty();
 

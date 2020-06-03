@@ -3,7 +3,7 @@ package com.atos.issr.modules.rx.model.interactor.useCase;
 import com.atos.issr.modules.rx.model.executor.PostExecutionThread;
 import com.atos.issr.modules.rx.model.executor.ThreadExecutor;
 import com.atos.issr.modules.rx.model.interactor.UseCase;
-import com.atos.issr.modules.rx.model.ws.dtos.request.UpsvarRequest;
+import com.atos.issr.modules.rx.model.ws.dtos.request.ISSRRequest;
 
 import rx.Observable;
 
@@ -11,7 +11,7 @@ import rx.Observable;
  * Created by a605053 on 12. 1. 2018.
  */
 
-public class ExampleService extends UseCase<UpsvarRequest> {
+public class ExampleService extends UseCase<ISSRRequest> {
     private static final String TAG = ExampleService.class.getName();
 
     public ExampleService() {
@@ -23,8 +23,8 @@ public class ExampleService extends UseCase<UpsvarRequest> {
     }
 
     @Override
-    protected Observable buildUseCaseObservable(UpsvarRequest request) {
-        return upsvarAPI.call(request);
+    protected Observable buildUseCaseObservable(ISSRRequest request) {
+        return issrAPI.call(request);
     }
 
 }

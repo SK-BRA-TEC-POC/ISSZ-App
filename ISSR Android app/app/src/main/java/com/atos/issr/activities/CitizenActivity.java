@@ -13,6 +13,10 @@ import android.widget.RadioButton;
 
 import com.atos.issr.R;
 import com.atos.issr.custom.CustomTextWatcher;
+import com.atos.issr.modules.rx.model.interactor.DefaultSubscriber;
+import com.atos.issr.modules.rx.model.interactor.useCase.CitizenService;
+import com.atos.issr.modules.rx.model.ws.dtos.request.CitizenRequest;
+import com.atos.issr.modules.rx.model.ws.dtos.response.ISSRResponse;
 import com.atos.issr.utils.AppUtils;
 import com.microblink.entities.recognizers.Recognizer;
 import com.microblink.entities.recognizers.RecognizerBundle;
@@ -20,7 +24,7 @@ import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
 import com.microblink.uisettings.ActivityRunner;
 import com.microblink.uisettings.DocumentVerificationUISettings;
 
-public class IndividualsActivity extends ActivityWithProgressBar {
+public class CitizenActivity extends ActivityWithProgressBar {
     public static final int MY_REQUEST_CODE = 0x101;
 
     private int covidState;
@@ -31,12 +35,13 @@ public class IndividualsActivity extends ActivityWithProgressBar {
     private static RecognizerBundle recognizerBundle;
     private DocumentVerificationUISettings documentUISettings;
     private BlinkIdRecognizer blinkIdRecognizer;
-
+    private CitizenService citizenService = new CitizenService();
+    private CitizenRequest request;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_individuals);
+        setContentView(R.layout.activity_citizen);
         initComponents();
 
         try {
@@ -126,6 +131,7 @@ public class IndividualsActivity extends ActivityWithProgressBar {
                     firstNameEditText.setText(result.getFirstName());
                     lastNameEditText.setText(result.getLastName());
                     personalNoNameEditText.setText(result.getPersonalIdNumber());
+
                     // TODO: 3. 6. 2020 uncomment line below if want automation
                     //searchButton.callOnClick();
                 }
@@ -139,8 +145,35 @@ public class IndividualsActivity extends ActivityWithProgressBar {
             @Override
             public void onClick(View v) {
                 startLoading();
-                // TODO: 3. 6. 2020 call ws
+
+                if (firstNameEditText.getText().toString().isEmpty() ||
+                        lastNameEditText.getText().toString().isEmpty() ||
+                        personalNoNameEditText.getText().toString().isEmpty()) {
+                } else {
+                    request = new CitizenRequest(firstNameEditText.getText().toString(),
+                            lastNameEditText.getText().toString(),
+                            personalNoNameEditText.getText().toString());
+
+                    // TODO: 3. 6. 2020 call ws
+                    citizenService.execute(new CitizenServiceSubscriber(), request);
+                }
+
             }
         };
+    }
+
+    private class CitizenServiceSubscriber extends DefaultSubscriber<ISSRResponse> {
+
+        @Override
+        public void onError(Throwable e) {
+            stopLoading();
+            Log.d(TAG, e.getMessage(), e);
+        }
+
+        @Override
+        public void onNext(ISSRResponse getProcessResponse) {
+            stopLoading();
+            // TODO: 3. 6. 2020 switch to result Activity
+        }
     }
 }

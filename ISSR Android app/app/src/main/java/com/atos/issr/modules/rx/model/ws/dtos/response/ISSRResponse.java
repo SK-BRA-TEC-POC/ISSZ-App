@@ -5,11 +5,11 @@ package com.atos.issr.modules.rx.model.ws.dtos.response;
  * Created by a605053 on 12. 1. 2018.
  */
 
-public class UpsvarResponse {
+public class ISSRResponse {
     private String code;
     private String description;
 
-    public UpsvarResponse() {
+    public ISSRResponse() {
         this.code = "";
         this.description = "Testovacia hlaska";
     }

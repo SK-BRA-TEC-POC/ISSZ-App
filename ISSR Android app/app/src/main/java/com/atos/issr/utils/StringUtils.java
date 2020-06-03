@@ -1,6 +1,6 @@
 package com.atos.issr.utils;
 
-import com.atos.issr.modules.rx.model.ws.dtos.request.UpsvarRequest;
+import com.atos.issr.modules.rx.model.ws.dtos.request.ISSRRequest;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonParseException;
@@ -18,10 +18,10 @@ public class StringUtils {
     private static final String TAG = "StringUtils";
     static ObjectMapper mapper = new ObjectMapper();
 
-    public static String requestToJson(UpsvarRequest request) {
+    public static String requestToJson(ISSRRequest request) {
         try {
             mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
-            return mapper.writeValueAsString(request.getRequest());
+            return mapper.writeValueAsString(request);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
