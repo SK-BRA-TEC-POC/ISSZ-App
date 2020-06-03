@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">ISSR Mobile</string>
+    <string name="app_name">ISSR Mobile</string>
     <!--  Citizen or individual  -->
     <string name="citizen">Citizen</string>
     <string name="company">Legal person</string>
@@ -16,4 +16,8 @@
     <string name="covid_state2">Covid-19 (other)</string>
     <string name="insert_request_id">Insert request ID for search</string>
     <string name="you_are_in_screen">You are in screen you have selected.</string>
+    <string name="detail_of_request">Detail of request</string>
+    <string name="staus_of_request">Request status</string>
+    <string name="payment_status">Payment status</string>
+    <string name="processed_period">Processed period</string>
 </resources>
