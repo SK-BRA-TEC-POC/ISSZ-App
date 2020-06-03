@@ -71,7 +71,7 @@
                 android:text="@string/request_id" />
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/search_request_edit_text"
+                android:id="@+id/request_id_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
