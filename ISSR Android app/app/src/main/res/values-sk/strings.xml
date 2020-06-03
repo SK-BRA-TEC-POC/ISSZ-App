@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">UPSVAR Mobile</string>
     <!--  Citizen or individual  -->
     <string name="citizen">Občan</string>
     <string name="company">Podnikateľ</string>
@@ -14,4 +13,5 @@
     <string name="last_name">Priezvisko</string>
     <string name="first_name">Meno</string>
     <string name="covid_state2">Covid-19 (iný)</string>
+    <string name="insert_request_id">Zadajte číslo žiadosti, alebo dohody</string>
 </resources>

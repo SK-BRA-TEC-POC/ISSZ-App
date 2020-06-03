@@ -37,7 +37,7 @@ public class IndividualsActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_individuals_layout);
+        setContentView(R.layout.activity_individuals);
 
         try {
             AppUtils.initMicroblink(this);

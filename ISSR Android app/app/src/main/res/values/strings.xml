@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">UPSVAR Mobile</string>
+    <string name="app_name" translatable="false">ISSR Mobile</string>
     <!--  Citizen or individual  -->
     <string name="citizen">Citizen</string>
     <string name="company">Legal person</string>
@@ -14,4 +14,5 @@
     <string name="first_name">First Name</string>
     <string name="covid_state1">Covid-19 (§54e)</string>
     <string name="covid_state2">Covid-19 (other)</string>
+    <string name="insert_request_id">Insert request ID for search</string>
 </resources>

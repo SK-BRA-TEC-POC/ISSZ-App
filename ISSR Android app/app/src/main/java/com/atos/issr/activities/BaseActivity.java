@@ -35,7 +35,8 @@ abstract class BaseActivity  extends AppCompatActivity {
                 startActivity(legalPersonActivity);
                 return true;
             case R.id.intro:
-                // TODO: 29. 5. 2020 something
+                Intent searchRequestActivity = new Intent(getApplicationContext(), SearchRequestActivity.class);
+                startActivity(searchRequestActivity);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
