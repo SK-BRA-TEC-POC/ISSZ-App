@@ -1,6 +1,7 @@
 package com.atos.issr.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +13,10 @@ import com.atos.issr.modules.rx.model.interactor.DefaultSubscriber;
 import com.atos.issr.modules.rx.model.interactor.useCase.SearchRequestService;
 import com.atos.issr.modules.rx.model.ws.dtos.request.SearchRequestRequest;
 import com.atos.issr.modules.rx.model.ws.dtos.response.ISSRResponse;
+import com.atos.issr.modules.rx.model.ws.dtos.response.LegalPersonResponse;
+import com.atos.issr.modules.rx.model.ws.dtos.response.SearchRequestResponse;
+
+import static com.atos.issr.utils.Constants.DETAILED_REQUEST_DATA;
 
 public class SearchRequestActivity extends ActivityWithProgressBar {
     private EditText requestIdEditText;
@@ -22,7 +27,7 @@ public class SearchRequestActivity extends ActivityWithProgressBar {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_request);
         initComponents();
-        requestIdEditText = findViewById(R.id.request_id_edit_text);
+        requestIdEditText = findViewById(R.id.request_id_text_view);
     }
 
     @Override
@@ -52,9 +57,20 @@ public class SearchRequestActivity extends ActivityWithProgressBar {
         }
 
         @Override
-        public void onNext(ISSRResponse getProcessResponse) {
+        public void onNext(ISSRResponse issrResponse) {
             stopLoading();
-            // TODO: 3. 6. 2020 switch to result Activity
+            if (issrResponse.getCode() == 0 && issrResponse instanceof SearchRequestResponse) {
+                // switch to result Activity
+                SearchRequestResponse response = (SearchRequestResponse) issrResponse;
+                if (response.getListOfRequests().size() == 1) {
+                    // go to screen with detail
+                    Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
+                    intent.putExtra(DETAILED_REQUEST_DATA, response.getListOfRequests().get(0));
+                    startActivity(intent);
+                } else {
+                    // TODO: 4. 6. 2020 go to screen with error
+                }
+            }
         }
     }
 }

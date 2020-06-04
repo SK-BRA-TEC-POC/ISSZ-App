@@ -17,6 +17,7 @@ import com.atos.issr.custom.CustomTextWatcher;
 import com.atos.issr.modules.rx.model.interactor.DefaultSubscriber;
 import com.atos.issr.modules.rx.model.interactor.useCase.CitizenService;
 import com.atos.issr.modules.rx.model.ws.dtos.request.CitizenRequest;
+import com.atos.issr.modules.rx.model.ws.dtos.response.CitizenResponse;
 import com.atos.issr.modules.rx.model.ws.dtos.response.ISSRResponse;
 import com.atos.issr.utils.AppUtils;
 import com.microblink.entities.recognizers.Recognizer;
@@ -24,6 +25,8 @@ import com.microblink.entities.recognizers.RecognizerBundle;
 import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
 import com.microblink.uisettings.ActivityRunner;
 import com.microblink.uisettings.DocumentVerificationUISettings;
+
+import static com.atos.issr.utils.Constants.DETAILED_REQUEST_DATA;
 
 public class CitizenActivity extends ActivityWithProgressBar {
     public static final int MY_REQUEST_CODE = 0x101;
@@ -177,9 +180,23 @@ public class CitizenActivity extends ActivityWithProgressBar {
         }
 
         @Override
-        public void onNext(ISSRResponse getProcessResponse) {
+        public void onNext(ISSRResponse issrResponse) {
             stopLoading();
-            // TODO: 3. 6. 2020 switch to result Activity
+
+            if (issrResponse.getCode() == 0 && issrResponse instanceof CitizenResponse) {
+                // switch to result Activity
+                CitizenResponse response = (CitizenResponse) issrResponse;
+                if (response.getListOfRequests().isEmpty()) {
+
+                } else if (response.getListOfRequests().size() == 1) {
+                    // go to screen with detail
+                    Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
+                    intent.putExtra(DETAILED_REQUEST_DATA, response.getListOfRequests().get(0));
+                    startActivity(intent);
+                } else {
+                    // TODO: 4. 6. 2020 go to screen with more requests
+                }
+            }
         }
     }
 }

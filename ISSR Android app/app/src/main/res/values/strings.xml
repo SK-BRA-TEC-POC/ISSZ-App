@@ -18,8 +18,8 @@
     <string name="you_are_in_screen">You are in screen you have selected.</string>
     <string name="detail_of_request">Detail of request</string>
     <string name="staus_of_request">Request status</string>
-    <string name="payment_status">Payment status</string>
     <string name="processed_period">Processed period</string>
     <string name="required_fields_empty">Required fields are not filled.</string>
     <string name="invalid_legal_person_id">Legal person ID is not valid. Valid ID has 6 or 8 numbers.</string>
+    <string name="duration">Duration</string>
 </resources>

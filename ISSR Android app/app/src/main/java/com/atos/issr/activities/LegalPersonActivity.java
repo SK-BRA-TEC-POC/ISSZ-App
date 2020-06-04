@@ -2,6 +2,7 @@ package com.atos.issr.activities;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,7 +14,11 @@ import com.atos.issr.R;
 import com.atos.issr.modules.rx.model.interactor.DefaultSubscriber;
 import com.atos.issr.modules.rx.model.interactor.useCase.LegalPersonService;
 import com.atos.issr.modules.rx.model.ws.dtos.request.LegalPersonRequest;
+import com.atos.issr.modules.rx.model.ws.dtos.response.CitizenResponse;
 import com.atos.issr.modules.rx.model.ws.dtos.response.ISSRResponse;
+import com.atos.issr.modules.rx.model.ws.dtos.response.LegalPersonResponse;
+
+import static com.atos.issr.utils.Constants.DETAILED_REQUEST_DATA;
 
 public class LegalPersonActivity extends ActivityWithProgressBar {
     public static final String TAG = "LegalPersonActivity";
@@ -83,9 +88,23 @@ public class LegalPersonActivity extends ActivityWithProgressBar {
         }
 
         @Override
-        public void onNext(ISSRResponse getProcessResponse) {
+        public void onNext(ISSRResponse issrResponse) {
             stopLoading();
-            // TODO: 3. 6. 2020 switch to result Activity
+
+            if (issrResponse.getCode() == 0 && issrResponse instanceof LegalPersonResponse) {
+                // switch to result Activity
+                LegalPersonResponse response = (LegalPersonResponse) issrResponse;
+                if (response.getListOfRequests().isEmpty()) {
+
+                } else if (response.getListOfRequests().size() == 1) {
+                    // go to screen with detail
+                    Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
+                    intent.putExtra(DETAILED_REQUEST_DATA, response.getListOfRequests().get(0));
+                    startActivity(intent);
+                } else {
+                    // TODO: 4. 6. 2020 go to screen with more requests
+                }
+            }
         }
     }
 }

@@ -11,9 +11,13 @@ import com.atos.issr.modules.rx.model.ws.dtos.response.CitizenResponse;
 import com.atos.issr.modules.rx.model.ws.dtos.response.ISSRResponse;
 import com.atos.issr.modules.rx.model.ws.dtos.response.LegalPersonResponse;
 import com.atos.issr.modules.rx.model.ws.dtos.response.SearchRequestResponse;
+import com.atos.issr.modules.rx.model.ws.dtos.types.DetailedRequest;
+import com.atos.issr.modules.rx.model.ws.dtos.types.RequestState;
 import com.atos.issr.utils.StringUtils;
 
 import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import rx.Observable;
 
@@ -101,6 +105,7 @@ public class IssrApiImpl implements IssrAPI {
             e.printStackTrace();
         }
         CitizenResponse response = new CitizenResponse();
+        prepareMockResponse(response);
         return (T) response;
     }
 
@@ -113,6 +118,7 @@ public class IssrApiImpl implements IssrAPI {
             e.printStackTrace();
         }
         LegalPersonResponse response = new LegalPersonResponse();
+        prepareMockResponse(response);
         return (T) response;
     }
 
@@ -126,6 +132,61 @@ public class IssrApiImpl implements IssrAPI {
         }
         SearchRequestResponse response = new SearchRequestResponse();
         return (T) response;
+    }
+
+    private void prepareMockResponse(ISSRResponse response) {
+
+        List<RequestState> states = new ArrayList<>();
+        RequestState s0 = new RequestState("15.06.2020 - 21.12.2020", "uzatvoreny podpisany");
+        RequestState s1 = new RequestState("31.04.2020 - 01.12.2020", "uhradeny");
+        states.add(s1);
+        RequestState s2 = new RequestState("18.05.2020 - 18.12.2020", "caka na uhradu");
+        states.add(s2);
+        RequestState s3 = new RequestState("05.05.2020 - 31.12.2020", "caka na poukaz");
+        states.add(s3);
+
+        DetailedRequest detail = new DetailedRequest();
+        detail.setRequestId("ID1");
+        detail.setState(s0);
+        detail.setListOfPreviousStates(states);
+
+        List<DetailedRequest> requests = new ArrayList<>();
+        requests.add(detail);
+
+        response.setCode(0);
+        response.setDescription("OK");
+        response.setListOfRequests(requests);
+    }
+
+
+    private void prepareMockResponse2(ISSRResponse response) {
+
+        List<RequestState> states = new ArrayList<>();
+        RequestState s0 = new RequestState("15.06.2020 - 21.12.2020", "uzatvoreny podpisany");
+        RequestState s1 = new RequestState("31.04.2020 - 01.12.2020", "uhradeny");
+        states.add(s1);
+        RequestState s2 = new RequestState("18.05.2020 - 18.12.2020", "caka na uhradu");
+        states.add(s2);
+        RequestState s3 = new RequestState("05.05.2020 - 31.12.2020", "caka na poukaz");
+        states.add(s3);
+
+        DetailedRequest detail = new DetailedRequest();
+        detail.setRequestId("ID1");
+        detail.setState(s0);
+        detail.setListOfPreviousStates(states);
+
+        DetailedRequest detail2 = new DetailedRequest();
+        detail2.setRequestId("ID2");
+        detail2.setState(s0);
+        detail2.setListOfPreviousStates(states);
+
+        List<DetailedRequest> requests = new ArrayList<>();
+        requests.add(detail);
+        requests.add(detail2);
+
+        response.setCode(0);
+        response.setDescription("OK");
+        response.setListOfRequests(requests);
     }
 
     private <T> T callWS(ISSRRequest request, Class<T> clazz, String urlSuffix) {
