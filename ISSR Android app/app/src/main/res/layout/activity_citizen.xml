@@ -113,6 +113,8 @@
                 android:layout_margin="10sp"
                 android:layout_weight="50"
                 android:background="@drawable/text_edit_style"
+                android:inputType="textCapSentences"
+                android:maxLength="30"
                 android:padding="10dp" />
         </LinearLayout>
 
@@ -140,6 +142,8 @@
                 android:layout_margin="10sp"
                 android:layout_weight="50"
                 android:background="@drawable/text_edit_style"
+                android:inputType="textCapSentences"
+                android:maxLength="30"
                 android:padding="10dp" />
         </LinearLayout>
 
