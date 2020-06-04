@@ -8,12 +8,20 @@ import javax.xml.bind.annotation.XmlElement;
 
 public abstract class RequestWithCovidType extends ISSRRequest {
     @XmlElement(
-            name = "covidTypeRequest",
+            name = "requestType",
             required = true
     )
-    private int covidTypeRequest;
+    private int requestType;
 
-    public RequestWithCovidType(int covidTypeRequest) {
-        this.covidTypeRequest = covidTypeRequest;
+    public RequestWithCovidType(int requestType) {
+        this.requestType = requestType;
+    }
+
+    public int getRequestType() {
+        return requestType;
+    }
+
+    public void setRequestType(int requestType) {
+        this.requestType = requestType;
     }
 }

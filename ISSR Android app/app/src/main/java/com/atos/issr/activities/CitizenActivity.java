@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.atos.issr.R;
@@ -33,7 +33,6 @@ import static com.atos.issr.utils.Constants.DETAILED_REQUEST_DATA;
 public class CitizenActivity extends ActivityWithProgressBar {
     public static final int MY_REQUEST_CODE = 0x101;
 
-    private int covidTypeRequest;
     private Button scanIdCardButton;
     private EditText firstNameEditText;
     private EditText lastNameEditText;
@@ -43,6 +42,7 @@ public class CitizenActivity extends ActivityWithProgressBar {
     private BlinkIdRecognizer blinkIdRecognizer;
     private CitizenService citizenService = new CitizenService();
     private CitizenRequest request;
+    private RadioGroup radioButtonGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +64,9 @@ public class CitizenActivity extends ActivityWithProgressBar {
         lastNameEditText = findViewById(R.id.edit_text_last_name);
         personalNoNameEditText = findViewById(R.id.edit_text_personal_no);
         personalNoNameEditText.addTextChangedListener(textChangeListener());
+
+        radioButtonGroup = findViewById(R.id.radio_button_selector);
+        radioButtonGroup.getCheckedRadioButtonId();
 
         scanIdCardButton = findViewById(R.id.scan_id_card_button);
         if (blinkIdRecognizer == null) {
@@ -106,22 +109,15 @@ public class CitizenActivity extends ActivityWithProgressBar {
         };
     }
 
-    public void onRadioButtonClicked(View view) {
-        boolean checked = ((RadioButton) view).isChecked();
-
-        switch (view.getId()) {
+    private int getRequestType(int radioButtonId) {
+        switch (radioButtonId) {
             case R.id.covid_state1:
-                if (checked) {
-                    covidTypeRequest = 1;
-                    break;
-                }
+                return 1;
             case R.id.covid_state2:
-                if (checked) {
-                    covidTypeRequest = 2;
-                    break;
-                }
+                return 2;
             default:
-                //nothing
+                return -1;
+            //nothing
         }
     }
 
@@ -158,17 +154,14 @@ public class CitizenActivity extends ActivityWithProgressBar {
                         personalNoNameEditText.getText().toString().isEmpty()) {
                     Toast.makeText(intent, R.string.required_fields_empty, Toast.LENGTH_LONG).show();
                     stopLoading();
-
                 } else {
-                    request = new CitizenRequest(covidTypeRequest,
+                    request = new CitizenRequest(getRequestType(radioButtonGroup.getCheckedRadioButtonId()),
                             firstNameEditText.getText().toString(),
                             lastNameEditText.getText().toString(),
                             personalNoNameEditText.getText().toString());
 
-                    // TODO: 3. 6. 2020 call ws
                     citizenService.execute(new CitizenServiceSubscriber(), request);
                 }
-
             }
         };
     }

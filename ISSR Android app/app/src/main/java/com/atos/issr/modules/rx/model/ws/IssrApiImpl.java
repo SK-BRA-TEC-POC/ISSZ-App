@@ -7,17 +7,11 @@ import com.atos.issr.modules.rx.model.ws.dtos.request.CitizenRequest;
 import com.atos.issr.modules.rx.model.ws.dtos.request.ISSRRequest;
 import com.atos.issr.modules.rx.model.ws.dtos.request.LegalPersonRequest;
 import com.atos.issr.modules.rx.model.ws.dtos.request.SearchRequestRequest;
-import com.atos.issr.modules.rx.model.ws.dtos.response.CitizenResponse;
 import com.atos.issr.modules.rx.model.ws.dtos.response.ISSRResponse;
-import com.atos.issr.modules.rx.model.ws.dtos.response.LegalPersonResponse;
-import com.atos.issr.modules.rx.model.ws.dtos.response.SearchRequestResponse;
-import com.atos.issr.modules.rx.model.ws.dtos.types.DetailedRequest;
-import com.atos.issr.modules.rx.model.ws.dtos.types.RequestState;
+import com.atos.issr.utils.MockDataHolder;
 import com.atos.issr.utils.StringUtils;
 
 import java.net.MalformedURLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import rx.Observable;
 
@@ -33,7 +27,7 @@ public class IssrApiImpl implements IssrAPI {
     public Observable<ISSRResponse> call(ISSRRequest request) {
         return rx.Observable.create(subscriber -> {
             try {
-                ISSRResponse response = mockCallClientResponse(request, ISSRResponse.class);
+                ISSRResponse response = callWS(request, ISSRResponse.class, "/suffix");
                 if (response == null) {
                     throw new NullPointerException();
                 }
@@ -66,7 +60,7 @@ public class IssrApiImpl implements IssrAPI {
     public Observable<ISSRResponse> legalPersonRequestCall(LegalPersonRequest request) {
         return rx.Observable.create(subscriber -> {
             try {
-//                ISSRResponse response = callWS(request, ISSRResponse.class, "/citizen");
+//                ISSRResponse response = callWS(request, ISSRResponse.class, "/leaglPerson");
                 ISSRResponse response = mockCallLegalPersonResponse(request, ISSRResponse.class);
                 if (response == null) {
                     throw new NullPointerException();
@@ -96,7 +90,7 @@ public class IssrApiImpl implements IssrAPI {
         });
     }
 
-    private <T> T mockCallClientResponse(ISSRRequest request, Class<T> clazz) {
+    private <T> T mockCallClientResponse(CitizenRequest request, Class<T> clazz) {
         String sRequest = StringUtils.requestToJson(request);
         Log.i(TAG, "Sending request: " + sRequest);
         try {
@@ -104,12 +98,18 @@ public class IssrApiImpl implements IssrAPI {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        CitizenResponse response = new CitizenResponse();
-        prepareMockResponse(response);
+        ISSRResponse response;
+        if (request.getRequestType() == 1) {
+            response = MockDataHolder.getCitizen1();
+        } else if (request.getRequestType() == 2) {
+            response = MockDataHolder.getCitizen2();
+        } else {
+            response = MockDataHolder.getNoData();
+        }
         return (T) response;
     }
 
-    private <T> T mockCallLegalPersonResponse(ISSRRequest request, Class<T> clazz) {
+    private <T> T mockCallLegalPersonResponse(LegalPersonRequest request, Class<T> clazz) {
         String sRequest = StringUtils.requestToJson(request);
         Log.i(TAG, "Sending request: " + sRequest);
         try {
@@ -117,12 +117,16 @@ public class IssrApiImpl implements IssrAPI {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        LegalPersonResponse response = new LegalPersonResponse();
-        prepareMockResponse2(response);
+        ISSRResponse response;
+        if (request.getRequestType() == 1) {
+            response = MockDataHolder.getLegalPerson();
+        } else {
+            response = MockDataHolder.getNoData();
+        }
         return (T) response;
     }
 
-    private <T> T mockCallSearchRequestResponse(ISSRRequest request, Class<T> clazz) {
+    private <T> T mockCallSearchRequestResponse(SearchRequestRequest request, Class<T> clazz) {
         String sRequest = StringUtils.requestToJson(request);
         Log.i(TAG, "Sending request: " + sRequest);
         try {
@@ -130,72 +134,14 @@ public class IssrApiImpl implements IssrAPI {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        SearchRequestResponse response = new SearchRequestResponse();
-        prepareMockResponse3(response);
+
+        ISSRResponse response;
+        if ("2".equals(request.getRequestId())) {
+            response = MockDataHolder.getSearchRequest();
+        } else {
+            response = MockDataHolder.getNoData();
+        }
         return (T) response;
-    }
-
-    private void prepareMockResponse(ISSRResponse response) {
-
-        List<RequestState> states = new ArrayList<>();
-        RequestState s0 = new RequestState("15.06.2020 - 21.12.2020", "uzatvoreny podpisany");
-        RequestState s1 = new RequestState("31.04.2020 - 01.12.2020", "uhradeny");
-        states.add(s1);
-        RequestState s2 = new RequestState("18.05.2020 - 18.12.2020", "caka na uhradu");
-        states.add(s2);
-        RequestState s3 = new RequestState("05.05.2020 - 31.12.2020", "caka na poukaz");
-        states.add(s3);
-
-        DetailedRequest detail = new DetailedRequest();
-        detail.setRequestId("ID1");
-        detail.setState(s0);
-        detail.setType("Dohoda");
-        detail.setListOfPreviousStates(states);
-
-        List<DetailedRequest> requests = new ArrayList<>();
-        requests.add(detail);
-
-        response.setCode(0);
-        response.setDescription("OK");
-        response.setListOfRequests(requests);
-    }
-
-
-    private void prepareMockResponse2(ISSRResponse response) {
-
-        List<RequestState> states = new ArrayList<>();
-        RequestState s0 = new RequestState("15.06.2020 - 21.12.2020", "uzatvoreny podpisany");
-        RequestState s1 = new RequestState("31.04.2020 - 01.12.2020", "uhradeny");
-        states.add(s1);
-        RequestState s2 = new RequestState("18.05.2020 - 18.12.2020", "caka na uhradu");
-        states.add(s2);
-        RequestState s3 = new RequestState("05.05.2020 - 31.12.2020", "caka na poukaz");
-        states.add(s3);
-
-        DetailedRequest detail = new DetailedRequest();
-        detail.setRequestId("ID1");
-        detail.setState(s0);
-        detail.setType("Dohoda");
-        detail.setListOfPreviousStates(states);
-
-        DetailedRequest detail2 = new DetailedRequest();
-        detail2.setRequestId("ID2");
-        detail2.setState(s0);
-        detail2.setType("Ziadost");
-        detail2.setListOfPreviousStates(states);
-
-        List<DetailedRequest> requests = new ArrayList<>();
-        requests.add(detail);
-        requests.add(detail2);
-
-        response.setCode(0);
-        response.setDescription("OK");
-        response.setListOfRequests(requests);
-    }
-
-    private void prepareMockResponse3(ISSRResponse response) {
-        response.setCode(404);
-        response.setDescription("Požiadavka nebola nájdená. Skúste skontrolovať parametre vyhľadávania.");
     }
 
     private <T> T callWS(ISSRRequest request, Class<T> clazz, String urlSuffix) {

@@ -55,14 +55,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:onClick="onRadioButtonClicked"
             android:text="@string/radio_button_state_covid" />
 
         <RadioButton
             android:id="@+id/covid_state2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
             android:text="@string/radio_button_state_other" />
 
     </RadioGroup>

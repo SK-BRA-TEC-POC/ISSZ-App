@@ -19,4 +19,12 @@ public class SearchRequestRequest extends ISSRRequest {
     public SearchRequestRequest(String requestId) {
         this.requestId = requestId;
     }
+
+    public String getRequestId() {
+        return requestId;
+    }
+
+    public void setRequestId(String requestId) {
+        this.requestId = requestId;
+    }
 }

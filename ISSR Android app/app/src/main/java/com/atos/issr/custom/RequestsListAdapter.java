@@ -15,7 +15,6 @@ import androidx.annotation.Nullable;
 import com.atos.issr.R;
 import com.atos.issr.activities.DetailActivity;
 import com.atos.issr.modules.rx.model.ws.dtos.types.DetailedRequest;
-import com.atos.issr.modules.rx.model.ws.dtos.types.RequestState;
 
 import java.util.List;
 
@@ -46,10 +45,12 @@ public class RequestsListAdapter extends ArrayAdapter {
         TextView requestIdTextView = view.findViewById(R.id.request_id_text_view);
         TextView requestTypeTextView = view.findViewById(R.id.request_type_text_view);
         TextView requestStatusTextView = view.findViewById(R.id.request_status_text_view);
+        TextView requestDetailTextView = view.findViewById(R.id.request_description_text_view);
 
         requestIdTextView.setText(requestDetail.getRequestId());
         requestTypeTextView.setText(requestDetail.getType());
         requestStatusTextView.setText(requestDetail.getState().getState());
+        requestDetailTextView.setText(requestDetail.getDescription());
 
         view.setOnClickListener(requestOnClickListener(position));
         return view;
