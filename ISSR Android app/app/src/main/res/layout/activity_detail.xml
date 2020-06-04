@@ -19,7 +19,7 @@
     <TextView
         android:id="@+id/rootTextView"
         android:layout_width="wrap_content"
-        android:layout_height="19dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/detail_of_request"
         app:layout_constraintEnd_toEndOf="parent"

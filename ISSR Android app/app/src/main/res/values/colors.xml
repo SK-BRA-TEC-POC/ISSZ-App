@@ -4,4 +4,13 @@
     <color name="colorPrimaryDark">#1B1B1B</color>
     <color name="colorAccent">#434343</color>
     <color name="progressBar">#2B8CC4</color>
+    <color name="button">#00823b</color>
+    <color name="buttonPressed">#006435</color>
+    <color name="focusIn">#ffbf47</color>
+    <color name="textColor">#0b0c0c</color>
+    <color name="secondaryTextColour">#6f777b</color>
+    <color name="borderColour">#bfc1c3</color>
+    <color name="panelColour">#eaeaea</color>
+    <color name="errorColour">#b10e1e</color>
+    <color name="white">#fff</color>
 </resources>

@@ -30,7 +30,7 @@
     <TextView
         android:id="@+id/rootTextView"
         android:layout_width="wrap_content"
-        android:layout_height="19dp"
+        android:layout_height="wrap_content"
         android:text="@string/insert_request_id"
         app:layout_constraintBottom_toTopOf="@+id/center_linear_layout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,7 +79,8 @@
                 android:background="@drawable/text_edit_style"
                 android:inputType="number"
                 android:maxLength="8"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:textAppearance="@style/TextViewApperanceSecondaryNormal" />
         </LinearLayout>
 
     </LinearLayout>
