@@ -166,7 +166,6 @@
                 android:dividerHeight="2dp"
                 android:divider="@null"
                 android:padding="10dp"
-
                 android:minHeight="300sp" />
 
         </LinearLayout>

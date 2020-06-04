@@ -16,6 +16,11 @@ public class DetailedRequest implements Serializable {
     )
     private String requestId;
     @XmlElement(
+            name = "type",
+            required = true
+    )
+    private String type;
+    @XmlElement(
             name = "actualState",
             required = true
     )
@@ -48,5 +53,13 @@ public class DetailedRequest implements Serializable {
 
     public void setListOfPreviousStates(List<RequestState> listOfPreviousStates) {
         this.listOfPreviousStates = listOfPreviousStates;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

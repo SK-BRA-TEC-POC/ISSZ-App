@@ -10,7 +10,8 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.ErrorActivity"></activity>
+        <activity android:name=".activities.RequestsListActivity"></activity>
+        <activity android:name=".activities.ErrorActivity" />
         <activity
             android:name=".activities.DetailActivity"
             android:screenOrientation="portrait" />

@@ -118,7 +118,7 @@ public class IssrApiImpl implements IssrAPI {
             e.printStackTrace();
         }
         LegalPersonResponse response = new LegalPersonResponse();
-        prepareMockResponse(response);
+        prepareMockResponse2(response);
         return (T) response;
     }
 
@@ -149,6 +149,7 @@ public class IssrApiImpl implements IssrAPI {
         DetailedRequest detail = new DetailedRequest();
         detail.setRequestId("ID1");
         detail.setState(s0);
+        detail.setType("Dohoda");
         detail.setListOfPreviousStates(states);
 
         List<DetailedRequest> requests = new ArrayList<>();
@@ -174,11 +175,13 @@ public class IssrApiImpl implements IssrAPI {
         DetailedRequest detail = new DetailedRequest();
         detail.setRequestId("ID1");
         detail.setState(s0);
+        detail.setType("Dohoda");
         detail.setListOfPreviousStates(states);
 
         DetailedRequest detail2 = new DetailedRequest();
         detail2.setRequestId("ID2");
         detail2.setState(s0);
+        detail2.setType("Ziadost");
         detail2.setListOfPreviousStates(states);
 
         List<DetailedRequest> requests = new ArrayList<>();

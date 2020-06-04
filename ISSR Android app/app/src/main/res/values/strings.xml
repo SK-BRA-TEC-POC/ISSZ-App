@@ -12,8 +12,8 @@
     <string name="personal_id">Personal ID</string>
     <string name="last_name">Last Name</string>
     <string name="first_name">First Name</string>
-    <string name="covid_state1">Covid-19 (§54e)</string>
-    <string name="covid_state2">Covid-19 (other)</string>
+    <string name="radio_button_state_covid">Covid-19 (§54e)</string>
+    <string name="radio_button_state_other">Other</string>
     <string name="insert_request_id">Insert request ID for search</string>
     <string name="you_are_in_screen">You are in screen you have selected.</string>
     <string name="detail_of_request">Detail of request</string>
@@ -23,4 +23,6 @@
     <string name="invalid_legal_person_id">Legal person ID is not valid. Valid ID has 6 or 8 numbers.</string>
     <string name="duration">Duration</string>
     <string name="unexpected_state">Unexpected state. Please contact support.</string>
+    <string name="request_status">Status:</string>
+    <string name="overview_for_requests">Requests overview</string>
 </resources>

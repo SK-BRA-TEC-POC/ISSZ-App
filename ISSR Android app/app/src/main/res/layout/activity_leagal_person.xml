@@ -55,14 +55,14 @@
             android:layout_height="wrap_content"
             android:checked="true"
             android:onClick="onRadioButtonClicked"
-            android:text="@string/covid_state1" />
+            android:text="@string/radio_button_state_covid" />
 
         <RadioButton
             android:id="@+id/covid_state2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
-            android:text="@string/covid_state2" />
+            android:text="@string/radio_button_state_other" />
 
     </RadioGroup>
 
@@ -94,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:text="@string/company" />
+                android:text="@string/ico" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/legal_person_id_edit_text"

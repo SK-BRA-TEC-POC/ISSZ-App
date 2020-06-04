@@ -19,6 +19,7 @@ import com.atos.issr.modules.rx.model.ws.dtos.response.ISSRResponse;
 import com.atos.issr.modules.rx.model.ws.dtos.response.LegalPersonResponse;
 
 import static com.atos.issr.activities.ErrorActivity.ERROR_MESSAGE_DATA;
+import static com.atos.issr.activities.RequestsListActivity.REQUESTS_LIST_DATA;
 import static com.atos.issr.utils.Constants.DETAILED_REQUEST_DATA;
 
 public class LegalPersonActivity extends ActivityWithProgressBar {
@@ -105,7 +106,9 @@ public class LegalPersonActivity extends ActivityWithProgressBar {
                     intent.putExtra(DETAILED_REQUEST_DATA, response.getListOfRequests().get(0));
                     startActivity(intent);
                 } else {
-                    // TODO: 4. 6. 2020 go to screen with more requests
+                    Intent intent = new Intent(getApplicationContext(), RequestsListActivity.class);
+                    intent.putExtra(REQUESTS_LIST_DATA, response);
+                    startActivity(intent);
                 }
             } else {
                 Intent intent = new Intent(getApplicationContext(), ErrorActivity.class);
