@@ -13,9 +13,9 @@ import com.atos.issr.modules.rx.model.interactor.DefaultSubscriber;
 import com.atos.issr.modules.rx.model.interactor.useCase.SearchRequestService;
 import com.atos.issr.modules.rx.model.ws.dtos.request.SearchRequestRequest;
 import com.atos.issr.modules.rx.model.ws.dtos.response.ISSRResponse;
-import com.atos.issr.modules.rx.model.ws.dtos.response.LegalPersonResponse;
 import com.atos.issr.modules.rx.model.ws.dtos.response.SearchRequestResponse;
 
+import static com.atos.issr.activities.ErrorActivity.ERROR_MESSAGE_DATA;
 import static com.atos.issr.utils.Constants.DETAILED_REQUEST_DATA;
 
 public class SearchRequestActivity extends ActivityWithProgressBar {
@@ -68,8 +68,14 @@ public class SearchRequestActivity extends ActivityWithProgressBar {
                     intent.putExtra(DETAILED_REQUEST_DATA, response.getListOfRequests().get(0));
                     startActivity(intent);
                 } else {
-                    // TODO: 4. 6. 2020 go to screen with error
+                    Intent intent = new Intent(getApplicationContext(), ErrorActivity.class);
+                    intent.putExtra(ERROR_MESSAGE_DATA, getResources().getString(R.string.unexpected_state));
+                    startActivity(intent);
                 }
+            } else {
+                Intent intent = new Intent(getApplicationContext(), ErrorActivity.class);
+                intent.putExtra(ERROR_MESSAGE_DATA, issrResponse.getDescription());
+                startActivity(intent);
             }
         }
     }

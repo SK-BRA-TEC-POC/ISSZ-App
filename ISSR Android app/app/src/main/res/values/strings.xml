@@ -22,4 +22,5 @@
     <string name="required_fields_empty">Required fields are not filled.</string>
     <string name="invalid_legal_person_id">Legal person ID is not valid. Valid ID has 6 or 8 numbers.</string>
     <string name="duration">Duration</string>
+    <string name="unexpected_state">Unexpected state. Please contact support.</string>
 </resources>

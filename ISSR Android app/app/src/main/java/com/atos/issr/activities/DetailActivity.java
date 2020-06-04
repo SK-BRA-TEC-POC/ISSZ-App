@@ -4,13 +4,15 @@ import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.atos.issr.R;
 import com.atos.issr.custom.ProcessPeriodListAdapter;
 import com.atos.issr.modules.rx.model.ws.dtos.types.DetailedRequest;
 
 import static com.atos.issr.utils.Constants.DETAILED_REQUEST_DATA;
 
-public class DetailActivity extends BaseActivity {
+public class DetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

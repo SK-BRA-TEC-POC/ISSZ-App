@@ -131,6 +131,7 @@ public class IssrApiImpl implements IssrAPI {
             e.printStackTrace();
         }
         SearchRequestResponse response = new SearchRequestResponse();
+        prepareMockResponse3(response);
         return (T) response;
     }
 
@@ -187,6 +188,11 @@ public class IssrApiImpl implements IssrAPI {
         response.setCode(0);
         response.setDescription("OK");
         response.setListOfRequests(requests);
+    }
+
+    private void prepareMockResponse3(ISSRResponse response) {
+        response.setCode(404);
+        response.setDescription("Požiadavka nebola nájdená. Skúste skontrolovať parametre vyhľadávania.");
     }
 
     private <T> T callWS(ISSRRequest request, Class<T> clazz, String urlSuffix) {

@@ -26,6 +26,7 @@ import com.microblink.entities.recognizers.blinkid.generic.BlinkIdRecognizer;
 import com.microblink.uisettings.ActivityRunner;
 import com.microblink.uisettings.DocumentVerificationUISettings;
 
+import static com.atos.issr.activities.ErrorActivity.ERROR_MESSAGE_DATA;
 import static com.atos.issr.utils.Constants.DETAILED_REQUEST_DATA;
 
 public class CitizenActivity extends ActivityWithProgressBar {
@@ -187,7 +188,9 @@ public class CitizenActivity extends ActivityWithProgressBar {
                 // switch to result Activity
                 CitizenResponse response = (CitizenResponse) issrResponse;
                 if (response.getListOfRequests().isEmpty()) {
-
+                    Intent intent = new Intent(getApplicationContext(), ErrorActivity.class);
+                    intent.putExtra(ERROR_MESSAGE_DATA, getResources().getString(R.string.unexpected_state));
+                    startActivity(intent);
                 } else if (response.getListOfRequests().size() == 1) {
                     // go to screen with detail
                     Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
@@ -196,6 +199,10 @@ public class CitizenActivity extends ActivityWithProgressBar {
                 } else {
                     // TODO: 4. 6. 2020 go to screen with more requests
                 }
+            } else {
+                Intent intent = new Intent(getApplicationContext(), ErrorActivity.class);
+                intent.putExtra(ERROR_MESSAGE_DATA, issrResponse.getDescription());
+                startActivity(intent);
             }
         }
     }
