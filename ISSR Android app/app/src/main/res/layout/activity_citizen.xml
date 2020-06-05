@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_frame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.CitizenActivity">
@@ -30,6 +31,7 @@
 
     <TextView
         android:id="@+id/rootTextView"
+        style="@style/TextViewAppearanceExtraLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enter_search_parameters"
@@ -52,6 +54,7 @@
 
         <RadioButton
             android:id="@+id/covid_state1"
+            style="@style/TextViewAppearanceLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
@@ -59,6 +62,7 @@
 
         <RadioButton
             android:id="@+id/covid_state2"
+            style="@style/TextViewAppearanceLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/radio_button_state_other" />
@@ -70,7 +74,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10sp"
-        android:background="@drawable/text_edit_style"
+        android:background="@drawable/input_area"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/search_button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,6 +102,7 @@
 
             <TextView
                 android:id="@+id/text_view_first_name"
+                style="@style/TextViewAppearanceLarge"
                 android:layout_width="100sp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -106,14 +111,14 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_first_name"
+                style="@style/TextViewAppearanceSecondaryLarge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
                 android:layout_weight="50"
-                android:background="@drawable/text_edit_style"
+                android:background="@drawable/edit_text_style"
                 android:inputType="textCapSentences"
                 android:maxLength="30"
-                android:textAppearance="@style/TextViewApperanceSecondaryNormal"
                 android:padding="10dp" />
         </LinearLayout>
 
@@ -128,6 +133,7 @@
 
             <TextView
                 android:id="@+id/text_view_last_name"
+                style="@style/TextViewAppearanceLarge"
                 android:layout_width="100sp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -136,11 +142,12 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_last_name"
+                style="@style/TextViewAppearanceSecondaryLarge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
                 android:layout_weight="50"
-                android:background="@drawable/text_edit_style"
+                android:background="@drawable/edit_text_style"
                 android:inputType="textCapSentences"
                 android:maxLength="30"
                 android:padding="10dp" />
@@ -152,12 +159,13 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10sp"
             android:orientation="horizontal"
-            android:textAppearance="@style/TextViewApperanceSecondaryNormal"
+            android:textAppearance="@style/TextViewAppearanceSecondaryLarge"
             app:layout_constraintTop_toBottomOf="@+id/linear_last_name_layout"
             tools:layout_editor_absoluteX="10dp">
 
             <TextView
                 android:id="@+id/text_view_personal_id"
+                style="@style/TextViewAppearanceLarge"
                 android:layout_width="100sp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -166,12 +174,12 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_personal_no"
+                style="@style/TextViewAppearanceSecondaryLarge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
                 android:layout_weight="50"
-                android:background="@drawable/text_edit_style"
-                android:textAppearance="@style/TextViewApperanceSecondaryNormal"
+                android:background="@drawable/edit_text_style"
                 android:inputType="number"
                 android:maxLength="11"
                 android:padding="10dp" />

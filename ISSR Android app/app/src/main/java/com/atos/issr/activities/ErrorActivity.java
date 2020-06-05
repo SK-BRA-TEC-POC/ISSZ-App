@@ -19,6 +19,5 @@ public class ErrorActivity extends AppCompatActivity {
 
         TextView errorTextView = findViewById(R.id.error_text_view);
         errorTextView.setText(message == null ? "" : message);
-
     }
 }

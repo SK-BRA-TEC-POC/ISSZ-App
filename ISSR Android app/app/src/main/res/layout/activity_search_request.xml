@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_frame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.SearchRequestActivity">
@@ -29,6 +30,7 @@
 
     <TextView
         android:id="@+id/rootTextView"
+        style="@style/TextViewAppearanceExtraLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/insert_request_id"
@@ -44,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10sp"
-        android:background="@drawable/text_edit_style"
+        android:background="@drawable/input_area"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/search_button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,6 +65,7 @@
 
             <TextView
                 android:id="@+id/search_request_text_view"
+                style="@style/TextViewAppearanceLarge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -72,15 +75,15 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/request_id_text_view"
+                style="@style/TextViewAppearanceSecondaryLarge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
                 android:layout_weight="50"
-                android:background="@drawable/text_edit_style"
-                android:inputType="number"
+                android:background="@drawable/edit_text_style"
+                android:inputType="textCapCharacters"
                 android:maxLength="8"
-                android:padding="10dp"
-                android:textAppearance="@style/TextViewApperanceSecondaryNormal" />
+                android:padding="10dp" />
         </LinearLayout>
 
     </LinearLayout>

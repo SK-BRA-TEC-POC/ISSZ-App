@@ -15,29 +15,32 @@
 
         <TextView
             android:id="@+id/request_type_text_view"
+            style="@style/TextViewAppearanceLarge"
             android:layout_width="80sp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5sp"
-            android:text=""
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:text="" />
 
         <TextView
             android:id="@+id/request_id_text_view"
+            style="@style/TextViewAppearanceLargeBold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:gravity="start"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:gravity="start" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/request_description_text_view"
+        style="@style/TextViewAppearanceSecondaryLarge"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="10sp"
         android:layout_marginEnd="20sp"
-        android:text=""
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:text="" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,11 +52,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/TextViewAppearanceLarge"
             android:layout_marginEnd="5sp"
             android:text="@string/request_status" />
 
         <TextView
             android:id="@+id/request_status_text_view"
+            style="@style/TextViewAppearanceLargeBold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>

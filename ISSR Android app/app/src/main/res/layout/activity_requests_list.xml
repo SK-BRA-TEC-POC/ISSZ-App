@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_frame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.RequestsListActivity">
@@ -34,6 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40sp"
         android:text="@string/overview_for_requests"
+        style="@style/TextViewAppearanceExtraLarge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_logo"
@@ -54,7 +56,7 @@
             android:layout_gravity="top"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/text_edit_style"
+            android:background="@drawable/input_area"
             android:dividerHeight="2dp"
             android:minHeight="300sp" />
     </RelativeLayout>

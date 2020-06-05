@@ -9,7 +9,7 @@
         <item name="android:windowAnimationStyle">@style/CustomActivityAnimation</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="buttonStyle">@style/ButtonStyle</item>
-        <item name="android:textViewStyle">@style/TextViewApperanceNormal</item>
+        <item name="android:textViewStyle">@style/TextViewAppearanceNormal</item>
     </style>
 
     <style name="CustomActivityAnimation" parent="@android:style/Animation.Activity">
@@ -19,49 +19,67 @@
         <item name="android:activityCloseExitAnimation">@anim/slide_out_right</item>
     </style>
 
-    <style name="TextViewApperanceSmall">
+    <style name="TextViewAppearanceSmall">
         <item name="android:textSize">@dimen/font_small</item>
         <item name="android:textColor">@color/textColor</item>
     </style>
 
-    <style name="TextViewApperanceSecondarySmall">
+    <style name="TextViewAppearanceSecondarySmall">
         <item name="android:textSize">@dimen/font_small</item>
         <item name="android:textColor">@color/secondaryTextColour</item>
     </style>
 
-    <style name="TextViewApperanceNormal">
+    <style name="TextViewAppearanceNormal">
         <item name="android:textSize">@dimen/font_normal</item>
         <item name="android:textColor">@color/textColor</item>
     </style>
 
-    <style name="TextViewApperanceSecondaryNormal">
+    <style name="TextViewAppearanceNormalBold">
+        <item name="android:textSize">@dimen/font_normal</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextViewAppearanceSecondaryNormal">
         <item name="android:textSize">@dimen/font_normal</item>
         <item name="android:textColor">@color/secondaryTextColour</item>
     </style>
 
-    <style name="EditTextApperanceSecondaryNormal">
+    <style name="EditTextAppearanceSecondaryNormal">
         <item name="android:textSize">@dimen/font_normal</item>
         <item name="android:textColor">@color/secondaryTextColour</item>
     </style>
 
-    <style name="TextViewApperanceLarge">
+    <style name="TextViewAppearanceLarge">
         <item name="android:textSize">@dimen/font_large</item>
         <item name="android:textColor">@color/textColor</item>
     </style>
 
-    <style name="TextViewApperanceSecondaryLarge">
+    <style name="TextViewAppearanceLargeBold">
+        <item name="android:textSize">@dimen/font_large</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextViewAppearanceSecondaryLarge">
         <item name="android:textSize">@dimen/font_large</item>
         <item name="android:textColor">@color/secondaryTextColour</item>
     </style>
 
-    <style name="TextViewApperanceExtraLarge">
+    <style name="TextViewAppearanceExtraLarge">
         <item name="android:textSize">@dimen/font_larger</item>
         <item name="android:textColor">@color/textColor</item>
     </style>
 
-    <style name="TextViewApperanceSecondaryExtraLarge">
+    <style name="TextViewAppearanceSecondaryExtraLarge">
         <item name="android:textSize">@dimen/font_larger</item>
         <item name="android:textColor">@color/secondaryTextColour</item>
+    </style>
+
+    <style name="TextViewAppearanceErrorExtraLarge">
+        <item name="android:textSize">@dimen/font_larger</item>
+        <item name="android:textColor">@color/errorColour</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="ButtonStyle">
