@@ -10,7 +10,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        setProperty("archivesBaseName", "UPSVAR_Mobile-$versionName")
+        setProperty("archivesBaseName", "ISSR_Mobile-$versionName")
         ndk {
             abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
         }
