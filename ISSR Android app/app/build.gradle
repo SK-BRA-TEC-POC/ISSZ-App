@@ -38,13 +38,19 @@ android {
 
         releasePROD {
             initWith release
-            buildConfigField "String", "SERVER_BASE_URL", "\"https://upsvar.test.sk/services/mdsa\""
+            buildConfigField "String", "SERVER_BASE_URL", "\"https://upsvar.test.sk/services/\""
+            signingConfig signingConfigs.apkSign
+        }
+
+        releaseDEMO {
+            initWith release
+            buildConfigField "String", "SERVER_BASE_URL", "\"https://upsvar.test.sk/services/\""
             signingConfig signingConfigs.apkSign
         }
 
 
         debug {
-            buildConfigField "String", "SERVER_BASE_URL", "\"http://upsvar.test.sk/services/mdsa\""
+            buildConfigField "String", "SERVER_BASE_URL", "\"http://upsvar.test.sk/services/\""
             minifyEnabled false
             debuggable true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
