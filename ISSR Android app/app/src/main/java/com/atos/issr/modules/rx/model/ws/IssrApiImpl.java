@@ -136,7 +136,8 @@ public class IssrApiImpl implements IssrAPI {
         }
 
         ISSRResponse response;
-        if ("2".equals(request.getRequestId())) {
+        if ("SK-MPSVR-15156494".equals(request.getRequestId())
+                || "2".equals(request.getRequestId())) {
             response = MockDataHolder.getSearchRequest();
         } else {
             response = MockDataHolder.getNoData();

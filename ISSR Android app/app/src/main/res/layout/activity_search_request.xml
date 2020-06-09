@@ -63,6 +63,14 @@
             tools:layout_editor_absoluteX="10dp"
             tools:layout_editor_absoluteY="410dp">
 
+            <Button
+                android:id="@+id/scan_barcode_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/scan_from_barcode"
+                android:layout_margin="10sp"/>
+
             <TextView
                 android:id="@+id/search_request_text_view"
                 style="@style/TextViewAppearanceLarge"
@@ -82,7 +90,6 @@
                 android:layout_weight="50"
                 android:background="@drawable/edit_text_style"
                 android:inputType="textCapCharacters"
-                android:maxLength="8"
                 android:padding="10dp" />
         </LinearLayout>
 

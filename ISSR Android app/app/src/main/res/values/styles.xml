@@ -12,6 +12,16 @@
         <item name="android:textViewStyle">@style/TextViewAppearanceNormal</item>
     </style>
 
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@style/CustomActivityAnimation</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="buttonStyle">@style/ButtonStyle</item>
+        <item name="android:textViewStyle">@style/TextViewAppearanceNormal</item>
+    </style>
+
     <style name="CustomActivityAnimation" parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
         <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>
@@ -84,8 +94,7 @@
 
     <style name="ButtonStyle">
         <item name="android:textSize">@dimen/font_large</item>
-        <item name="textEndPadding">10sp</item>
-        <item name="textStartPadding">10sp</item>
+        <item name="android:padding">10sp</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:background">@drawable/button</item>
         <item name="android:gravity">center</item>

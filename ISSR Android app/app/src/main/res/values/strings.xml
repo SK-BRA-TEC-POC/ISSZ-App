@@ -25,4 +25,9 @@
     <string name="unexpected_state">Unexpected state. Please contact support.</string>
     <string name="request_status">Status:</string>
     <string name="overview_for_requests">Requests overview</string>
+    <string name="put_barcode_inside">Place a barcode in the viewfinder rectangle to scan it.</string>
+    <string name="light_off">Light off</string>
+    <string name="light_on">Light on</string>
+    <string name="unknown_barcode">Unsupported barcode type.</string>
+    <string name="scan_from_barcode">Scan from barcode</string>
 </resources>

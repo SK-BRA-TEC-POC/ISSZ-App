@@ -31,9 +31,9 @@
 
     <TextView
         android:id="@+id/rootTextView"
+        style="@style/TextViewAppearanceExtraLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/TextViewAppearanceExtraLarge"
         android:text="@string/enter_search_parameters"
         app:layout_constraintBottom_toTopOf="@+id/radio_button_selector"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,9 +53,9 @@
 
         <RadioButton
             android:id="@+id/covid_state1"
+            style="@style/TextViewAppearanceLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/TextViewAppearanceLarge"
             android:checked="true"
             android:text="@string/radio_button_state_covid" />
 
@@ -92,21 +92,21 @@
 
             <TextView
                 android:id="@+id/legal_person_text_view"
+                style="@style/TextViewAppearanceLarge"
                 android:layout_width="100sp"
                 android:layout_height="wrap_content"
-                style="@style/TextViewAppearanceLarge"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:text="@string/ico" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/legal_person_id_edit_text"
+                style="@style/TextViewAppearanceSecondaryLarge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10sp"
                 android:layout_weight="50"
                 android:background="@drawable/edit_text_style"
-                style="@style/TextViewAppearanceSecondaryLarge"
                 android:inputType="number"
                 android:maxLength="8"
                 android:padding="10dp" />

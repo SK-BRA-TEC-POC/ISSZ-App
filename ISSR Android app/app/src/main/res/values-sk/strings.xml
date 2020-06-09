@@ -8,7 +8,7 @@
     <string name="search">Vyhľadať</string>
     <string name="enter_search_parameters">Zadajte parametre pre vyhľadávanie</string>
     <string name="ico">IČO</string>
-    <string name="scan_id_card">Skenovať z Občianskeho preukazu</string>
+    <string name="scan_id_card">Skenovať z občianskeho preukazu</string>
     <string name="personal_id">Rodné čislo</string>
     <string name="last_name">Priezvisko</string>
     <string name="first_name">Meno</string>
@@ -24,4 +24,9 @@
     <string name="unexpected_state">Neočakávaný stav. Kontaktujte prosím podporu.</string>
     <string name="request_status">Stav:</string>
     <string name="overview_for_requests">Prehľad žiadostí a dohôd</string>
+    <string name="put_barcode_inside">Vložte čiarový kod do vyhľadávacieho okna pre načítanie.</string>
+    <string name="light_off">Vypnúť svetlo</string>
+    <string name="light_on">Zapnúť svetlo</string>
+    <string name="unknown_barcode">Nepodporovaný typ čiarového kódu.</string>
+    <string name="scan_from_barcode">Skenovať čiarový kód</string>
 </resources>

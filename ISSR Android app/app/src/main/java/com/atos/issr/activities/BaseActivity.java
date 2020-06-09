@@ -15,7 +15,7 @@ import com.atos.issr.R;
  * Created by Jarci on 29. 5. 2020.
  */
 
-abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
     protected String TAG = "BaseActivity";
 
     @Override

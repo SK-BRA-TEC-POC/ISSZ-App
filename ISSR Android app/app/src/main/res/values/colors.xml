@@ -13,4 +13,8 @@
     <color name="panelColour">#eaeaea</color>
     <color name="errorColour">#b10e1e</color>
     <color name="white">#fff</color>
+
+    <!--SCANNER-->
+    <color name="viewfinder_border">#ffbf47</color>
+<!--    <color name="viewfinder_laser">#0093f7</color>-->
 </resources>
