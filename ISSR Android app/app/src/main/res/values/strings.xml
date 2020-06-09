@@ -30,4 +30,5 @@
     <string name="light_on">Light on</string>
     <string name="unknown_barcode">Unsupported barcode type.</string>
     <string name="scan_from_barcode">Scan from barcode</string>
+    <string name="unable_to_use_functionality">Unable to use functionality without permission.</string>
 </resources>

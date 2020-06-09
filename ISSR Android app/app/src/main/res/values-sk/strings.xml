@@ -29,4 +29,5 @@
     <string name="light_on">Zapnúť svetlo</string>
     <string name="unknown_barcode">Nepodporovaný typ čiarového kódu.</string>
     <string name="scan_from_barcode">Skenovať čiarový kód</string>
+    <string name="unable_to_use_functionality">Bez povolenia nie je možné použiť funkcionalitu.</string>
 </resources>

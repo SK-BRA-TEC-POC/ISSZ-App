@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
 import com.atos.issr.R;
@@ -22,12 +23,15 @@ import com.atos.issr.modules.rx.model.ws.dtos.request.SearchRequestRequest;
 import com.atos.issr.modules.rx.model.ws.dtos.response.ISSRResponse;
 import com.atos.issr.modules.rx.model.ws.dtos.response.SearchRequestResponse;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.atos.issr.activities.ErrorActivity.ERROR_MESSAGE_DATA;
 import static com.atos.issr.modules.barcode.BarcodeScannerFragment.BARCODE_VALUE_NAME;
 import static com.atos.issr.utils.Constants.DETAILED_REQUEST_DATA;
 
 public class SearchRequestActivity extends ActivityWithProgressBar {
-    public static final int REQUEST_CODE = 1;
+    public static final int PERMISSION_REQUEST_CODE = 1;
 
     private EditText requestIdEditText;
     private Button scanBarcodeButton;
@@ -58,7 +62,7 @@ public class SearchRequestActivity extends ActivityWithProgressBar {
             public void onClick(View v) {
                 if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        requestPermissions(new String[]{Manifest.permission.CAMERA}, REQUEST_CODE);
+                        requestPermissions(new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST_CODE);
                     }
                 } else {
                     Intent barcodeReaderActivity = new Intent(getApplicationContext(), BarcodeScannerActivity.class);
@@ -115,6 +119,29 @@ public class SearchRequestActivity extends ActivityWithProgressBar {
                 intent.putExtra(ERROR_MESSAGE_DATA, issrResponse.getDescription());
                 startActivity(intent);
             }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (PERMISSION_REQUEST_CODE == requestCode) {
+            List<String> unCheckedPermissions = new ArrayList<>();
+            for (int i = 0; i < permissions.length; i++) {
+                if (PackageManager.PERMISSION_GRANTED != grantResults[i]) {
+                    unCheckedPermissions.add(permissions[i]);
+                }
+            }
+
+            if (unCheckedPermissions.isEmpty()) {
+                Intent barcodeReaderActivity = new Intent(getApplicationContext(), BarcodeScannerActivity.class);
+                startActivity(barcodeReaderActivity);
+            } else {
+                Toast.makeText(this, R.string.unable_to_use_functionality, Toast.LENGTH_LONG).show();
+                //requestPermissions(unCheckedPermissions.toArray(new String[]{}), PERMISSION_REQUEST_CODE);
+            }
+
+
         }
     }
 }
